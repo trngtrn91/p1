@@ -84,15 +84,17 @@ def abbey(prev_opponent_play,
               "SP": 0,
               "SS": 0,
           }]):
-
+    # 1st move after player moves
     if not prev_opponent_play:
         prev_opponent_play = 'R'
     opponent_history.append(prev_opponent_play)
-
+    # join last 2 moves of player
     last_two = "".join(opponent_history[-2:])
+    # always run
     if len(last_two) == 2:
+        # store the value in correct combi
         play_order[0][last_two] += 1
-
+    
     potential_plays = [
         prev_opponent_play + "R",
         prev_opponent_play + "P",
